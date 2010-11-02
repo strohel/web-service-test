@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from web2py.gluon.contrib.pysimplesoap.client import SoapClient, SoapFault
+from pysimplesoap.client import SoapClient, SoapFault
 
 client = SoapClient(wsdl="http://localhost:8000/webservices/chatroom/call/soap?WSDL")
 
