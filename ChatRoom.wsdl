@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<description
+    xmlns="http://www.w3.org/ns/wsdl"
+    targetNamespace="http://strohel.no-ip.com/wsdl/ChatRoom"
+    xmlns:tns="http://strohel.no-ip.com/wsdl/ChatRoom"
+    xmlns:ghns="http://strohel.no-ip.com/schemas/ChatRoom"
+    xmlns:wsoap= "http://www.w3.org/ns/wsdl/soap"
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+
+  <documentation>
+    Tohleto je jednoduchá chatovací služba. Od klientů se čeká, že budou volat
+    CheckMessage() každých pár (2) sekund. Jako parametr se předá id poslední zprávy,
+    kterou klient od serveru dostal nebo 0, pokud ještě žádnou nedostal.
+
+    CheckMessage() buď vrátí zprávu, nebo "výjimku" NoMoreMessagesError, která
+    znamená, že v danou chvíli není dostupná žádná novější zpráva. Na tuto
+    výjimku klient nemusí a neměl by nijak reagovat.
+    Pokud CheckMessage() vrátí zprávu, tak klient může a měl by znovu zavolat
+    CheckMessage() a tak pokačovat až do doby, kdy už žádné nové zprávy nebudou.
+
+    Pokud chce klient poslat zprávu, zavolá SendMessage(). Pozor, server
+    přepíše id, které klient ve zprávě poslal. Aby si toho byl klient vědom,
+    musí mít zaslaná zpráva nastaveno id na 0. Server dále může přepsat datum,
+    pokud to uzná za vhodné. Nevrátí se buď nic, nebo vyjimka SendMessageError,
+    ktera znamená, že něco není v pořádu a že server zprávu nepřijal.
+
+    Od klientů se čeká, že i vlastní zprávy zobrazí až když se zpět získají
+    pomocí CheckMessage(), nikoliv již při odeslání.
+  </documentation>
+
+  <types>
+    <xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://strohel.no-ip.com/schemas/ChatRoom"
+        xmlns="http://strohel.no-ip.com/schemas/ChatRoom">
+      <xs:element name="ChatMessage" type="tChatMessage"/>
+      <xs:complexType name="tChatMessage">
+        <xs:sequence>
+          <xs:element name="id" type="xs:unsignedLong"/>
+          <xs:element name="dateTime" type="xs:dateTime"/>
+          <xs:element name="author" type="xs:string"/>
+          <xs:element name="text" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:element name="ChatMessageId" type="xs:unsignedLong"/>
+
+      <xs:element name="SendMessageError" type="xs:string"/>
+      <xs:element name="NoMoreMessagesError" type="xs:string"/>
+    </xs:schema>
+  </types>
+
+  <interface name="ChatRoomInterface">
+    <fault name="SendMessageFault" element="ghns:SendMessageError"/> 
+    <fault name="NoMoreMessagesFault" element="ghns:NoMoreMessagesError"/> 
+
+    <operation
+        name="opSendMessage"
+        pattern="http://www.w3.org/ns/wsdl/robust-in-only"
+        style="http://www.w3.org/ns/wsdl/style/iri"><!-- pattern="...robust-in-only" vrací void nebo výjimku -->
+      <input messageLabel="In" element="ghns:ChatMessage"/>
+      <outfault messageLabel="Out" ref="tns:SendMessageFault"/>
+    </operation>
+
+    <operation
+        name="opCheckMessage"
+        pattern="http://www.w3.org/ns/wsdl/in-out"
+        style="http://www.w3.org/ns/wsdl/style/iri"><!-- pattern="in-out" vrací zpravu nebo výjimku -->
+      <input messageLabel="In" element="ghns:ChatMessageId"/>
+      <output messageLabel="Out" element="ghns:ChatMessage"/>
+      <outfault messageLabel="Out" ref="tns:NoMoreMessagesFault"/>
+    </operation>
+  </interface>
+
+  <binding
+      name="ChatRoomSOAPBinding"
+      interface="tns:ChatRoomInterface"
+      type="http://www.w3.org/ns/wsdl/soap"
+      wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+    <operation ref="tns:opSendMessage"
+      wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response"/><!-- HTTP POST by default -->
+    <operation ref="tns:opCheckMessage"
+      wsoap:mep="http://www.w3.org/2003/05/soap/mep/soap-response"/><!-- HTTP GET by default -->
+
+    <fault ref="tns:SendMessageFault" 
+      wsoap:code="soap:Sender"/><!-- http://www.w3.org/TR/2007/REC-soap12-part1-20070427/#tabsoapfaultcodes -->
+    <fault ref="tns:NoMoreMessagesFault" 
+      wsoap:code="soap:Sender"/>
+  </binding>
+
+  <service
+     name="ChatRoomService" 
+     interface="tns:ChatRoomInterface">
+    <endpoint
+       name="ChatRoomEndpoint" 
+       binding="tns:ChatRoomSOAPBinding"
+       address ="http://strohel.no-ip.com:666/ChatRoom"/>
+  </service>
+
+</description>
