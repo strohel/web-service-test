@@ -1,3 +1,4 @@
 /web2py
 /webservices/cache
 /webservices/sessions
+/webservices/cron
