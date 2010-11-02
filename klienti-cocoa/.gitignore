@@ -1,0 +1,6 @@
+/build
+*.py
+/web2py
+soap.wsdl
+/web2py.app
+/.DS_Store
