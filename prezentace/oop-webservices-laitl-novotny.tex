@@ -1,0 +1,287 @@
+\documentclass[12pt]{beamer}
+
+\usetheme{Air}
+\usepackage{thumbpdf}
+\usepackage{wasysym}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{verbatim}
+
+\pdfinfo
+{
+  /Title       (Web Services)
+  /Creator     (TeX)
+  /Author      (Matěj Laitl, Matěj Novotný)
+}
+
+
+\title{Web Services}
+\subtitle{Aby byly strojově čitelné zprávy čitelné i pro vás}
+\author{Matěj Laitl, Matěj Novotný}
+\date{4. listopadu 2010}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section*{}
+\begin{frame}
+  \frametitle{Co si dnes povíme}
+  \tableofcontents[section=1,hidesubsections]
+\end{frame}
+
+\AtBeginSection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Přehled}
+    \tableofcontents[currentsection,hideallsubsections]
+  }
+}
+
+\AtBeginSubsection[]
+{
+  \frame<handout:0>
+  {
+    \frametitle{Přehled}
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+  }
+}
+
+\newcommand<>{\highlighton}[1]{%
+  \alt#2{\structure{#1}}{{#1}}
+}
+
+\newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Web Services}
+
+\begin{frame}
+  \frametitle{Co jsou Web Services}
+  \begin{alertblock}{Web Services nejsou:}
+    \begin{itemize}
+      \item Prohlížení webu skrz webový prohlížeč
+      \item Na web zaměřené služby typu webhosting
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Co jsou Web Services}
+
+  \begin{block}{Web Services jsou:}
+    \begin{itemize}
+      \item "Mechanismus pro výměnu strojově čitelných dat po síti mezi klientem a serverem"
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%% PUVODNI KOD NIZE %%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+  \frametitle{Prerequisites \& Goals}
+  \framesubtitle{Knowledge is a brick wall that you raise line by line forever}
+  \begin{block}{LaTeX}
+  \begin{itemize}
+    \item Obviously some basic LaTeX knowledge is necessary
+    \item Some more features will be provided here
+  \end{itemize}
+  \end{block}
+
+  \begin{block}{Beamer}
+  \begin{itemize}
+    \item You'll learn them by looking at this presentation source
+  \end{itemize}
+  \end{block}
+
+  \begin{block}{Goal}
+  \begin{itemize}
+    \item Learn how to make well structured slides
+    \item Using a beautiful theme (congrats to the Oxygen team!)
+    \item Take over the world
+    \item Relax...
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{Basic structuring}
+\begin{frame}
+  \frametitle{Sections, Frames and Blocks}
+  \framesubtitle{Put everything into boxes}
+
+  The current section is "Basic structuring". And the current frame
+  is what you have on the screen right now.
+
+  \begin{block}{A beautiful block}
+  A block has a title, and some content. You can put in a block
+  almost everything you want that is provided by LaTeX. For example
+  math works as usual:
+    \begin{equation}
+    \sum_{i=1}^n i = \frac{n \times (n+1)}{2}
+    \end{equation}
+  \end{block}
+
+  Also works outside a block:
+  \begin{equation}
+  \sum_{i=1}^n i^2 = \frac{n \times (n+1) \times (2n+1)}{6}
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Different type of blocks}
+  \framesubtitle{Weeeee! Colors!!}
+  \begin{block}{Standard block}
+  \begin{itemize}
+    \item A standard block, used for grouping
+    \item Obviously can contain itemizes too...
+    \begin{itemize}
+      \item And nested itemizes...
+      \item of course!
+    \end{itemize}
+  \end{itemize}
+  \end{block}
+  \begin{alertblock}{Alert block}
+  WARNING: Something very important inside this block!
+  \end{alertblock}
+  \begin{example}
+  Note that examples are displayed as a special block...
+  \end{example}
+\end{frame}
+
+\section{Fancy features}
+\begin{frame}
+  \frametitle{Highlighting}
+  \framesubtitle{Hey! Look here! here!}
+
+  \begin{block}{A regular block}
+  \begin{itemize}
+    \item Normal text
+    \item \highlighton{Highlighted text} to draw attention
+    \item \alert{"Alert'ed" text} to spot very important information
+    \item Alternatively you can
+    \begin{itemize}
+      \alert{\item "Alert" the item itself}
+      \highlighton{\item Or "Highlight" it}
+    \end{itemize}
+  \end{itemize}
+  \end{block}
+  \begin{alertblock}{If it's very very important...}
+  \alert{... you can "alert" in an "alertblock"}\\
+  Ewww, nasty, heh?
+  \end{alertblock}
+\end{frame}
+
+\newcommand{\putlink}[1]{%
+   \pgfsetlinewidth{1.4pt}%
+   \pgfsetendarrow{\pgfarrowtriangle{4pt}}%
+   \pgfline{\pgfxy(1,1)}{\pgfxy(#1,1)}
+}
+
+\begin{frame}
+  \frametitle{Overlay effects}
+  \framesubtitle{Keep the suspense!}
+  \begin{block}{Time bomb}
+  \begin{enumerate}
+    \item<2-> Two more to go
+    \item<3-> One more to go
+    \item<4-> Last chance...
+    \item<5-> BOOM!
+  \end{enumerate}
+  \end{block}
+  \begin{block}{"Animation"}<6->
+    \begin{pgfpicture}{0cm}{0cm}{7cm}{2cm}
+    \only<1-6>{
+      \putlink{2}
+    }
+    \only<7>{
+      \putlink{4}
+    }
+    \only<8>{
+      \putlink{6}
+    }
+    \only<9>{
+      \putlink{8}
+    }
+    \only<10>{
+      \putlink{10}
+    }
+    \end{pgfpicture}
+  \end{block}
+\end{frame}
+
+\section*{}
+\frame{
+  \vfill
+  \centering
+  \highlighton{
+  \usebeamerfont*{frametitle}And now?
+
+  \usebeamerfont*{framesubtitle}Enter the secret section
+  }
+  \vfill
+}
+\begin{frame}
+  \frametitle{Contributing to this beamer style}
+  \framesubtitle{We want you !}
+
+  \begin{block}{Why?}
+  \begin{itemize}
+    \item Beamer is hot!
+    \item This style deserves to be improved
+  \end{itemize}
+  \end{block}
+
+  \begin{block}{How?}
+  \begin{itemize}
+    \item Grab it
+    \item Improve its LaTeX code
+    \item Use you artistics skills
+    \item Document it
+    \item Help other people to use it
+    \item Use it...
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Resources}
+  \framesubtitle{If you want to improve this style}
+  \begin{thebibliography}{10}
+
+  \beamertemplatearticlebibitems
+
+  \bibitem{beamer-homepage}
+    LaTeX Beamer
+    \newblock {\tt http://latex-beamer.sourceforge.net/}
+
+  \bibitem{kdeslides}
+    KDE Presentations
+    \newblock {\tt http://www.kde.org/kdeslides/}
+
+  \end{thebibliography}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PUVODNI KOD VYSE %%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \vspace{2cm}
+  {\huge Otázky?}
+
+  \vspace{3cm}
+  \begin{flushright}
+    Matěj Laitl, Matěj Novotný
+
+    \structure{\footnotesize{matej@laitl.cz, mates.novotny@gmail.com}}
+  \end{flushright}
+}
+
+\end{document}
