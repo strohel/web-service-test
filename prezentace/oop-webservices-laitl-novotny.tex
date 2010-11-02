@@ -102,7 +102,7 @@
       \item výměna probíhá mezi \highlighton{klientem} a \highlighton{serverem}
       \item data jsou \highlighton{strukturovaná}
       \item rozhraní je popsané ve \highlighton{strojově zpracovatelném tvaru}
-      \item pro komunikaci se využívá \highlighton{aplikační vrstva} síťového modelu
+      \item pro komunikaci se využívá \highlighton{aplikační vrstva} síťového modelu (\highlighton{ http} nebo \highlighton{https})
     \end{itemize}
   \end{block}
 \end{frame}
@@ -110,11 +110,26 @@
 \begin{frame}
   \frametitle{Rozdělení Web Services}
   \framesubtitle{...abychom si to zaškatulkovali}
+	\begin{itemize}
+      \item \LARGE Big web services
+		\begin{itemize}
+			\item Podniková řešení
+			\item SOAP, XML, WSDL
+		\end{itemize}
+      \item \LARGE RESTful
+		\begin{itemize}
+			\item API webových služeb
+		\end{itemize}
+    \end{itemize}
+\end{frame}
 
-  Tady to Matěj doplní
-
-  O "Big Web Services" napíšeš, že jsou tyicky popsané WSDL a pro samostatnou
-  komunikaci používají SOAP
+\begin{frame}
+	\frametitle{Big web services}
+	\begin{itemize}
+		\item definice rozhraní pomocí \highlighton{WSDL} (Web Services Description Language)
+		\item odeslání požadavku pomocí \highlighton{http}
+		\item formát požadavku i odpovědi specifikuje \highlighton{SOAP} (Simple Object Access Protocol)
+	\end{itemize}
 \end{frame}
 
 \begin{frame}

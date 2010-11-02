@@ -23,7 +23,7 @@
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeArchitecturePreference = x86_64;
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeExecutable = 630925161269D80F00C1A011 /* SOAP chat */;
 		activeSDKPreference = macosx10.6;
 		activeTarget = 8D1107260486CEB800E47090 /* SOAP chat */;
@@ -105,21 +105,28 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 309858716;
-			PBXWorkspaceStateSaveDate = 309858716;
+			PBXPerProjectTemplateStateSaveDate = 310432089;
+			PBXWorkspaceStateSaveDate = 310432089;
 		};
 		perUserProjectItems = {
-			63410AC8127812A400511DC5 /* PBXTextBookmark */ = 63410AC8127812A400511DC5 /* PBXTextBookmark */;
-			63410AC9127812A400511DC5 /* PBXTextBookmark */ = 63410AC9127812A400511DC5 /* PBXTextBookmark */;
-			63410ACA127812A400511DC5 /* PBXTextBookmark */ = 63410ACA127812A400511DC5 /* PBXTextBookmark */;
-			63AECB6912749A5800DB35E3 /* PBXTextBookmark */ = 63AECB6912749A5800DB35E3 /* PBXTextBookmark */;
-			63AECB701274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB701274AA7100DB35E3 /* PBXTextBookmark */;
-			63AECB721274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB721274AA7100DB35E3 /* PBXTextBookmark */;
-			63AECB731274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB731274AA7100DB35E3 /* PBXTextBookmark */;
-			63AECB741274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB741274AA7100DB35E3 /* PBXTextBookmark */;
-			63AECB751274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB751274AA7100DB35E3 /* PBXTextBookmark */;
-			63AECB761274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB761274AA7100DB35E3 /* PBXTextBookmark */;
-			63AECB771274AA7100DB35E3 /* PBXTextBookmark */ = 63AECB771274AA7100DB35E3 /* PBXTextBookmark */;
+			63410AC8127812A400511DC5 = 63410AC8127812A400511DC5 /* PBXTextBookmark */;
+			63410AC9127812A400511DC5 = 63410AC9127812A400511DC5 /* PBXTextBookmark */;
+			63410ACA127812A400511DC5 = 63410ACA127812A400511DC5 /* PBXTextBookmark */;
+			636145FC1280D173007CB7D1 /* PBXTextBookmark */ = 636145FC1280D173007CB7D1 /* PBXTextBookmark */;
+			636145FD1280D173007CB7D1 /* PBXTextBookmark */ = 636145FD1280D173007CB7D1 /* PBXTextBookmark */;
+			636145FE1280D173007CB7D1 /* PBXTextBookmark */ = 636145FE1280D173007CB7D1 /* PBXTextBookmark */;
+			636146041280D2BC007CB7D1 /* PBXTextBookmark */ = 636146041280D2BC007CB7D1 /* PBXTextBookmark */;
+			636146051280D2BC007CB7D1 /* PBXTextBookmark */ = 636146051280D2BC007CB7D1 /* PBXTextBookmark */;
+			636146061280D2BC007CB7D1 /* PBXTextBookmark */ = 636146061280D2BC007CB7D1 /* PBXTextBookmark */;
+			636146091280D2D0007CB7D1 /* PBXTextBookmark */ = 636146091280D2D0007CB7D1 /* PBXTextBookmark */;
+			63AECB6912749A5800DB35E3 = 63AECB6912749A5800DB35E3 /* PBXTextBookmark */;
+			63AECB701274AA7100DB35E3 = 63AECB701274AA7100DB35E3 /* PBXTextBookmark */;
+			63AECB721274AA7100DB35E3 = 63AECB721274AA7100DB35E3 /* PBXTextBookmark */;
+			63AECB731274AA7100DB35E3 = 63AECB731274AA7100DB35E3 /* PBXTextBookmark */;
+			63AECB741274AA7100DB35E3 = 63AECB741274AA7100DB35E3 /* PBXTextBookmark */;
+			63AECB751274AA7100DB35E3 = 63AECB751274AA7100DB35E3 /* PBXTextBookmark */;
+			63AECB761274AA7100DB35E3 = 63AECB761274AA7100DB35E3 /* PBXTextBookmark */;
+			63AECB771274AA7100DB35E3 = 63AECB771274AA7100DB35E3 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 630925271269D81400C1A011 /* Source Control */;
 		userBuildSettings = {
@@ -241,9 +248,79 @@
 		fRef = 63DEEC70126BA7D300615B0A /* ChatroomService.m */;
 		name = "ChatroomService.m: 10";
 		rLen = 0;
-		rLoc = 278;
+		rLoc = 286;
 		rType = 0;
 		vrLen = 1445;
+		vrLoc = 0;
+	};
+	636145FC1280D173007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC70126BA7D300615B0A /* ChatroomService.m */;
+		name = "ChatroomService.m: 10";
+		rLen = 0;
+		rLoc = 286;
+		rType = 0;
+		vrLen = 1436;
+		vrLoc = 793;
+	};
+	636145FD1280D173007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC6D126BA7D300615B0A /* WSGeneratedObj.h */;
+		name = "WSGeneratedObj.h: 67";
+		rLen = 0;
+		rLoc = 2363;
+		rType = 0;
+		vrLen = 1834;
+		vrLoc = 451;
+	};
+	636145FE1280D173007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC6E126BA7D300615B0A /* WSGeneratedObj.m */;
+		name = "WSGeneratedObj.m: 161";
+		rLen = 284;
+		rLoc = 3916;
+		rType = 0;
+		vrLen = 695;
+		vrLoc = 0;
+	};
+	636146041280D2BC007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC6E126BA7D300615B0A /* WSGeneratedObj.m */;
+		name = "WSGeneratedObj.m: 161";
+		rLen = 284;
+		rLoc = 3916;
+		rType = 0;
+		vrLen = 695;
+		vrLoc = 0;
+	};
+	636146051280D2BC007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC6F126BA7D300615B0A /* ChatroomService.h */;
+		name = "ChatroomService.h: 27";
+		rLen = 0;
+		rLoc = 966;
+		rType = 0;
+		vrLen = 1633;
+		vrLoc = 0;
+	};
+	636146061280D2BC007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC70126BA7D300615B0A /* ChatroomService.m */;
+		name = "ChatroomService.m: 10";
+		rLen = 0;
+		rLoc = 286;
+		rType = 0;
+		vrLen = 1453;
+		vrLoc = 0;
+	};
+	636146091280D2D0007CB7D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 63DEEC70126BA7D300615B0A /* ChatroomService.m */;
+		name = "ChatroomService.m: 10";
+		rLen = 0;
+		rLoc = 286;
+		rType = 0;
+		vrLen = 1387;
 		vrLoc = 0;
 	};
 	63AECB6912749A5800DB35E3 /* PBXTextBookmark */ = {
@@ -261,7 +338,7 @@
 		fRef = 63DEEC70126BA7D300615B0A /* ChatroomService.m */;
 		name = "ChatroomService.m: 10";
 		rLen = 0;
-		rLoc = 278;
+		rLoc = 286;
 		rType = 0;
 		vrLen = 2226;
 		vrLoc = 0;
@@ -328,9 +405,9 @@
 	};
 	63DEEC6D126BA7D300615B0A /* WSGeneratedObj.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {985, 1248}}";
-			sepNavSelRange = "{2400, 0}";
-			sepNavVisRange = "{1850, 978}";
+			sepNavIntBoundsRect = "{{0, 0}, {985, 1312}}";
+			sepNavSelRange = "{2363, 0}";
+			sepNavVisRange = "{451, 1834}";
 			sepNavWindowFrame = "{{15, 0}, {790, 1173}}";
 		};
 	};
@@ -338,12 +415,12 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1223, 3584}}";
 			sepNavSelRange = "{3916, 284}";
-			sepNavVisRange = "{0, 1132}";
+			sepNavVisRange = "{0, 695}";
 		};
 	};
 	63DEEC6F126BA7D300615B0A /* ChatroomService.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {798, 960}}";
+			sepNavIntBoundsRect = "{{0, 0}, {798, 896}}";
 			sepNavSelRange = "{966, 0}";
 			sepNavVisRange = "{0, 1633}";
 		};
@@ -351,8 +428,8 @@
 	63DEEC70126BA7D300615B0A /* ChatroomService.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {798, 1072}}";
-			sepNavSelRange = "{278, 0}";
-			sepNavVisRange = "{0, 1445}";
+			sepNavSelRange = "{286, 0}";
+			sepNavVisRange = "{0, 1387}";
 			sepNavWindowFrame = "{{15, 0}, {790, 1173}}";
 		};
 	};

@@ -7,7 +7,7 @@
 
 #import "ChatroomService.h"
 
-NSString * const ServerAddress = @"http://localhost:8000/webservices/chatroom/call/soap";
+NSString * const ServerAddress = @"http://strohel.no-ip.com:8000/webservices/chatroom/call/soap";
 
 @implementation ChatRoomService
 
