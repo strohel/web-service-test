@@ -116,6 +116,7 @@
 			\item Podniková řešení
 			\item SOAP, XML, WSDL
 		\end{itemize}
+      \vspace{1cm}
       \item {\LARGE RESTful}
 		\begin{itemize}
 			\item API webových služeb
@@ -124,15 +125,15 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Big web services}
-	\framesubtitle{"Velké" služby}
+	\frametitle{Big Web Services}
+	\framesubtitle{\uv{Velké} služby}
 	\begin{itemize}
 		\item zaměření na volání procedur a funkcí
 		\item definice rozhraní pomocí \highlighton{WSDL} (Web Services Description Language)
-		\item odeslání požadavku pomocí \highlighton{http} (popřípadě SMTP)
+		\item odeslání požadavku pomocí \highlighton{HTTP} (popřípadě SMTP, XML-RPC)
 		\item formát požadavku i odpovědi specifikuje \highlighton{SOAP} (Simple Object Access Protocol)
 		\begin{itemize}
-			\item http se používá pouze pro transport SOAP zprávy
+			\item HTTP se používá pouze pro transport SOAP zprávy
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -163,6 +164,8 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Zaměření}
+
   \begin{example}
     Od teď dále se budeme věnovat tzv. Big Web Services
   \end{example}
@@ -189,20 +192,30 @@
   \frametitle{Přístupy k implementaci serveru}
   \framesubtitle{Na co si dát pozor}
 
-  \begin{itemize}
+  \begin{enumerate}
     \item Napsat WSDL, vygenerovat prázdnou implementaci
     \begin{itemize}
-      \item \alert{Pozor na na pozdější úpravy}
+      \alert{\item Pozor na na pozdější úpravy}
     \end{itemize}
+    \vspace{4mm}
     \item Naimplementovat server, vygenerovat WSDL
+    \vspace{4mm}
     \item Napsat obojí ručně
     \begin{itemize}
       \item Pro otrlé
     \end{itemize}
-  \end{itemize}
+  \end{enumerate}
 \end{frame}
 
-\section{Ukázky}
+\begin{frame}
+  \frametitle{Ukázka WSDL}
+
+  \begin{example}
+    Matěji, teď ukaž WSDL 2.0, které máš připravené
+  \end{example}
+\end{frame}
+
+\section{Ukázky kódů}
 
 \begin{frame}
   \frametitle{Generovaní Objective-C klienta z WSDL}
@@ -240,34 +253,6 @@
   \end{example}
 \end{frame}
 
-
-%%%%%%%%%%%%%%%%%% PUVODNI KOD NIZE %%%%%%%%%%%%%%%%%%%
-
-\section{Fancy features}
-\begin{frame}
-  \frametitle{Highlighting}
-  \framesubtitle{Hey! Look here! here!}
-
-  \begin{block}{A regular block}
-  \begin{itemize}
-    \item Normal text
-    \item \highlighton{Highlighted text} to draw attention
-    \item \alert{"Alert'ed" text} to spot very important information
-    \item Alternatively you can
-    \begin{itemize}
-      \alert{\item "Alert" the item itself}
-      \highlighton{\item Or "Highlight" it}
-    \end{itemize}
-  \end{itemize}
-  \end{block}
-  \begin{alertblock}{If it's very very important...}
-  \alert{... you can "alert" in an "alertblock"}\\
-  Ewww, nasty, heh?
-  \end{alertblock}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%% PUVODNI KOD VYSE %%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
   \frametitle{Zdroje}
   \framesubtitle{Pokud se chcete dovědět víc}
@@ -278,6 +263,22 @@
   \bibitem{projekt-na-githubu}
     Zdrojáky serveru, klientů a prezentace
     \newblock {\tt http://github.com/strohel/web-service-test}
+
+  \bibitem{wsdl}
+    Předmluva k WSDL 2.0 specifikaci
+    \newblock {\tt http://TODO/}
+
+  \bibitem{soap}
+    Předmluva k SOAP specifikaci
+    \newblock {\tt http://TODO/}
+
+  \bibitem{xml-schema}
+    XML Schema
+    \newblock {\tt http://TODO/}
+
+  \bibitem{verejne-web-sluzby}
+    Seznam veřejných Web Sevices
+    \newblock {\tt http://TODO/}
 
   \end{thebibliography}
 \end{frame}
