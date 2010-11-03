@@ -26,20 +26,27 @@
 }
 
 - (IBAction)send:(id)sender {
+	// odeslani zpravy
 	[ChatRoomService sendMessage:[inputField stringValue] author:@"Matej"];
+	// vycisteni vztupniho pole
 	[inputField setStringValue:@""];
 }
 
 - (void)checkMessages {
+	// kontrola nove zpravy
 	Message *message = [ChatRoomService checkMessage:lastSeen];
+	// je-li nova zprava
 	while (message != nil) {
+		// pridani textu zpravy do okna
 		[text appendFormat:@"%@: %@\n", message.author, message.text];
 		NSAttributedString *attributedString= [[NSAttributedString alloc]
 											   initWithString:text];
 		[[textView textStorage] setAttributedString:attributedString];
 		[attributedString release];
+		// ID posledni dosle zpravy
 		lastSeen = message.Id;
 		[message release];
+		// znovu kontrola na nove zpravy
 		message = [ChatRoomService checkMessage:lastSeen];
 	}
 }
