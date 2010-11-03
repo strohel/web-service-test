@@ -18,11 +18,8 @@
     Pokud CheckMessage() vrátí zprávu, tak klient může a měl by znovu zavolat
     CheckMessage() a tak pokačovat až do doby, kdy už žádné nové zprávy nebudou.
 
-    Pokud chce klient poslat zprávu, zavolá SendMessage(). Pozor, server
-    přepíše id, které klient ve zprávě poslal. Aby si toho byl klient vědom,
-    musí mít zaslaná zpráva nastaveno id na 0. Server dále může přepsat datum,
-    pokud to uzná za vhodné. Nevrátí se buď nic, nebo vyjimka SendMessageError,
-    ktera znamená, že něco není v pořádu a že server zprávu nepřijal.
+    Pokud chce klient poslat zprávu, zavolá SendMessage(). Server vrátí id nové
+    zprávy nebo výjimku, která signalizuje, že zpráva nebyla přijata.
 
     Od klientů se čeká, že i vlastní zprávy zobrazí až když se zpět získají
     pomocí CheckMessage(), nikoliv již při odeslání.
@@ -56,9 +53,10 @@
 
     <operation
         name="opSendMessage"
-        pattern="http://www.w3.org/ns/wsdl/robust-in-only"
-        style="http://www.w3.org/ns/wsdl/style/iri"><!-- pattern="...robust-in-only" vrací void nebo výjimku -->
+        pattern="http://www.w3.org/ns/wsdl/in-out"
+        style="http://www.w3.org/ns/wsdl/style/iri"><!-- pattern="...robust-in-only" vrací void nebo výjimku... ale nakonec NEPOUZIT -->
       <input messageLabel="In" element="ghns:ChatMessage"/>
+      <output messageLabel="Out" element="ghns:ChatMessageId"/>
       <outfault messageLabel="Out" ref="tns:SendMessageFault"/>
     </operation>
 
