@@ -140,13 +140,16 @@
 
 \begin{frame}
   \frametitle{RESTful Web Services}
-  \framesubtitle{"Malé" služby}
+  \framesubtitle{...často ještě větší služby}
 	\begin{itemize}
 		\item architektura \highlighton{REST} (Representational State Transfer)
 		\item zaměření na data
 		\item protokol je bezstavový
 		\item využívá dotazovací metody \highlighton{HTTP}
 	\end{itemize}
+	\begin{example}
+		Twitter API, Atom, Dropbox API
+	\end{example}
 \end{frame}
 
 \begin{frame}
@@ -181,7 +184,8 @@
 
   \begin{block}{SOAP:}
     \begin{itemize}
-      \item je protokol upravující
+    	\item je protokol specifikující formát zprávy
+		\item zprávy mají formát \highlighton{XML}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -218,20 +222,26 @@
 \section{Ukázky kódů}
 
 \begin{frame}
-  \frametitle{Generovaní Objective-C klienta z WSDL}
+  \frametitle{Generovaní klienta z WSDL}
   \framesubtitle{...bylo by nudné to psát ručně}
 
-  \begin{example}
-    Matěji, a teď ukaž, jak se generuje klient v Obj-C a jak to pak vypadá
-  \end{example}
+	\begin{block}{Některé knihovny pro generování}
+		\begin{itemize}
+			\item \highlighton{Java:} Apache Axis, WSDL2Java, Spring
+			\item \highlighton{Cocoa:} WSMakeStubs (zastaralé, bez úpravy kódu nefunkční)
+		\end{itemize}    	
+  \end{block}
+	\begin{example}
+		Matěji, a teď ukaž, jak se generuje klient v Obj-C a jak to pak vypadá.
+	\end{example}
 \end{frame}
 
 \begin{frame}
   \frametitle{Dynamicky vytvořený klient v Pythonu}
   \framesubtitle{...někdo generování nepotřebuje}
-
+	Použití pythonové knihovny \highlighton{web2py}
   \begin{example}
-    Matěji, a teď ukaž, jak to lze celé udělat na 3 řádky
+    Matěji, a teď ukaž, jak to lze celé udělat na 3 řádky.
   \end{example}
 \end{frame}
 
@@ -239,8 +249,9 @@
   \frametitle{Server v Pythonu}
   \framesubtitle{...čím línější programátor, tým vyšší jazyk}
 
+	Znovu \highlighton{web2py}
   \begin{example}
-    Matěji, a teď ukaž, jak udělat server v Pythonu
+    Matěji, a teď ukaž, jak udělat server v Pythonu.
   \end{example}
 \end{frame}
 

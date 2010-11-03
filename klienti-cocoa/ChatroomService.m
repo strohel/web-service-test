@@ -7,7 +7,7 @@
 
 #import "ChatroomService.h"
 
-NSString * const ServerAddress = @"http://strohel.no-ip.com:8000/webservices/chatroom/call/soap";
+NSString * const ServerAddress = @"http://localhost:8000/webservices/chatroom/call/soap";
 
 @implementation ChatRoomService
 
@@ -40,21 +40,28 @@ NSString * const ServerAddress = @"http://strohel.no-ip.com:8000/webservices/cha
 
 
 + (int) sendMessage:(NSString *)text author:(NSString *)author {
+	// pole parametru
 	id paramValues[] = {    
         text, author        
-    };    
+    };
+	// pole jmen parametru
     NSString* paramNames[] = {    
         @"text", @"author"        
     };
+	// vytvoreni objektu pro komunikaci
 	WSGeneratedObj *invocation = [[WSGeneratedObj alloc] init];
-	[invocation setRef:[invocation createInvocationRef: ServerAddress
-											methodName: @"sendMessage"
-											  protocol: (NSString *) kWSSOAP1999Protocol
+	// nastaveni paramatru volani
+	[invocation setRef:[invocation createInvocationRef: ServerAddress // adresa serveru
+											methodName: @"sendMessage" // nazev procedury
+											  protocol: (NSString *) kWSSOAP1999Protocol // protokol
 												 style: (NSString*) kWSSOAPStyleRPC
-											soapAction: ServerAddress
+											soapAction: ServerAddress // akce soap
 									   methodNamespace: NULL]];
+	// predani parametru objektu pro volani
     [invocation setParameters:2 values: paramValues names: paramNames];    
+	// ziskani vysledku
 	NSDictionary *dict = [invocation getResultDictionary];
+	// rozbor vracene zpravy
 	dict = (NSDictionary *)[dict objectForKey:@"Message"];
 	if (dict == nil) {
 		return 0;
