@@ -130,7 +130,7 @@
 	\begin{itemize}
 		\item zaměření na volání procedur a funkcí
 		\item definice rozhraní pomocí \highlighton{WSDL} (Web Services Description Language)
-		\item odeslání požadavku pomocí \highlighton{HTTP} (popřípadě SMTP, XML-RPC)
+		\item výměna zpráv pomocí \highlighton{HTTP} (popřípadě SMTP, RPC)
 		\item formát požadavku i odpovědi specifikuje \highlighton{SOAP} (Simple Object Access Protocol)
 		\begin{itemize}
 			\item HTTP se používá pouze pro transport SOAP zprávy
@@ -184,8 +184,43 @@
 
   \begin{block}{SOAP:}
     \begin{itemize}
-    	\item je protokol specifikující formát zprávy
-		\item zprávy mají formát \highlighton{XML}
+      \item je protokol pro výměnu strukturovaných informací
+      \item používá \highlighton{XML} pro reprezentaci dat
+      \item používá aplikační vrstvu pro přenos zpráv (HTTP, RPC, SMTP)
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{SOAP trivia:}
+    \begin{itemize}
+      \item vznikl r. 1998 jako projekt Microsoftu\copyright
+      \item r. 2003 se verze 1.2 stala W3C doporučením
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vzory pro výměnu zpráv}
+  \framesubtitle{...neboli Message Exchange Patterns}
+
+  \begin{block}{SOAP definuje:}
+    \begin{itemize}
+      \item \uv{obálku}: formát zprávy a jak jí zpracovat (envelope)
+      \item pravidla pro kódování uživatelských datových typů
+      \item konvenci pro volání procedur a obdržení odpovědi
+      \item vazbu na protokoly, nad nimiž funguje
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ještě více o SOAPu}
+
+  \begin{block}{SOAP definuje:}
+    \begin{itemize}
+      \item \uv{obálku}: formát zprávy a jak jí zpracovat (envelope)
+      \item pravidla pro kódování uživatelských datových typů
+      \item konvenci pro volání procedur a obdržení odpovědi
+      \item vazbu na protokoly, nad nimiž funguje
     \end{itemize}
   \end{block}
 \end{frame}
@@ -206,7 +241,7 @@
     \vspace{4mm}
     \item Napsat obojí ručně
     \begin{itemize}
-      \item Pro otrlé
+      \item \highlighton{Nelze doporučit}, pouze pro otrlé
     \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -239,9 +274,12 @@
 \begin{frame}
   \frametitle{Dynamicky vytvořený klient v Pythonu}
   \framesubtitle{...někdo generování nepotřebuje}
-	Použití pythonové knihovny \highlighton{web2py}
+
   \begin{example}
     Matěji, a teď ukaž, jak to lze celé udělat na 3 řádky.
+    \begin{itemize}
+      \item použita pythonová knihovna \highlighton{pysimplesoap}
+    \end{itemize}
   \end{example}
 \end{frame}
 
@@ -249,9 +287,11 @@
   \frametitle{Server v Pythonu}
   \framesubtitle{...čím línější programátor, tým vyšší jazyk}
 
-	Znovu \highlighton{web2py}
   \begin{example}
     Matěji, a teď ukaž, jak udělat server v Pythonu.
+    \begin{itemize}
+      \item znovu \highlighton{pysimplesoap} použitý ve frameworku \highlighton{web2py}
+    \end{itemize}
   \end{example}
 \end{frame}
 
@@ -277,7 +317,7 @@
 
   \bibitem{wsdl}
     Předmluva k WSDL 2.0 specifikaci
-    \newblock {\tt http://TODO/}
+    \newblock {\tt http://www.w3.org/TR/wsdl20-primer/}
 
   \bibitem{soap}
     Předmluva k SOAP specifikaci
@@ -285,7 +325,7 @@
 
   \bibitem{xml-schema}
     XML Schema
-    \newblock {\tt http://TODO/}
+    \newblock {\tt http://www.w3.org/TR/xmlschema-0/}
 
   \bibitem{verejne-web-sluzby}
     Seznam veřejných Web Sevices
