@@ -199,12 +199,11 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Vzory pro výměnu zpráv}
-  \framesubtitle{...neboli Message Exchange Patterns}
+  \frametitle{Ještě více o SOAPu}
 
   \begin{block}{SOAP definuje:}
     \begin{itemize}
-      \item \uv{obálku}: formát zprávy a jak jí zpracovat (envelope)
+      \item \uv{obálku}: formát zprávy a jak jí zpracovat
       \item pravidla pro kódování uživatelských datových typů
       \item konvenci pro volání procedur a obdržení odpovědi
       \item vazbu na protokoly, nad nimiž funguje
@@ -213,14 +212,15 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Ještě více o SOAPu}
+  \frametitle{Vzory pro výměnu zpráv}
+  \framesubtitle{...neboli Message Exchange Patterns}
 
-  \begin{block}{SOAP definuje:}
+  \begin{block}{SOAP definuje tyto vzory výměny zpráv:}
     \begin{itemize}
-      \item \uv{obálku}: formát zprávy a jak jí zpracovat (envelope)
-      \item pravidla pro kódování uživatelských datových typů
-      \item konvenci pro volání procedur a obdržení odpovědi
-      \item vazbu na protokoly, nad nimiž funguje
+      \item \highlighton{In-Only} - \uv{void method(Object arg)}
+      \item \highlighton{Robust In-Only} - \uv{void method(Object arg) throws Exception}
+      \item \highlighton{In-Out} - \uv{Object method(Object arg) throws Exception}
+      \item \highlighton{In Optional-Out}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -234,7 +234,7 @@
   \begin{enumerate}
     \item Napsat WSDL, vygenerovat prázdnou implementaci
     \begin{itemize}
-      \alert{\item Pozor na na pozdější úpravy}
+      \alert{\item Pozor na pozdější úpravy}
     \end{itemize}
     \vspace{4mm}
     \item Naimplementovat server, vygenerovat WSDL
@@ -321,7 +321,7 @@
 
   \bibitem{soap}
     Předmluva k SOAP specifikaci
-    \newblock {\tt http://TODO/}
+    \newblock {\tt http://www.w3.org/TR/soap12-part0/}
 
   \bibitem{xml-schema}
     XML Schema
