@@ -160,7 +160,7 @@ static void __async_callback(WSMethodInvocationRef invocation, void* info, CFDic
 	// Utility function called by the generated code to create the invocation
 - (WSMethodInvocationRef) createInvocationRef:(NSString*) endpoint
 								   methodName:(NSString*) methodName
-								   protocol:(NSString*) protocol
+									 protocol:(NSString*) protocol
 										style:(NSString*) style
 								   soapAction:(NSString*) soapAction
 							  methodNamespace:(NSString*) methodNamespace

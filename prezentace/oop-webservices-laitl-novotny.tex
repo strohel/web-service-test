@@ -102,7 +102,7 @@
       \item výměna probíhá mezi \highlighton{klientem} a \highlighton{serverem}
       \item data jsou \highlighton{strukturovaná}
       \item rozhraní je popsané ve \highlighton{strojově zpracovatelném tvaru}
-      \item pro komunikaci se využívá \highlighton{aplikační vrstva} síťového modelu (\highlighton{ http} nebo \highlighton{https})
+      \item pro komunikaci se využívá \highlighton{aplikační vrstva} síťového modelu
     \end{itemize}
   \end{block}
 \end{frame}
@@ -111,12 +111,12 @@
   \frametitle{Rozdělení Web Services}
   \framesubtitle{...abychom si to zaškatulkovali}
 	\begin{itemize}
-      \item \LARGE Big web services
+      \item {\LARGE Big web services}
 		\begin{itemize}
 			\item Podniková řešení
 			\item SOAP, XML, WSDL
 		\end{itemize}
-      \item \LARGE RESTful
+      \item {\LARGE RESTful}
 		\begin{itemize}
 			\item API webových služeb
 		\end{itemize}
@@ -125,18 +125,41 @@
 
 \begin{frame}
 	\frametitle{Big web services}
+	\framesubtitle{"Velké" služby}
 	\begin{itemize}
+		\item zaměření na volání procedur a funkcí
 		\item definice rozhraní pomocí \highlighton{WSDL} (Web Services Description Language)
-		\item odeslání požadavku pomocí \highlighton{http}
+		\item odeslání požadavku pomocí \highlighton{http} (popřípadě SMTP)
 		\item formát požadavku i odpovědi specifikuje \highlighton{SOAP} (Simple Object Access Protocol)
+		\begin{itemize}
+			\item http se používá pouze pro transport SOAP zprávy
+		\end{itemize}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{RESTful Web Services}
-  \framesubtitle{}
+  \framesubtitle{"Malé" služby}
+	\begin{itemize}
+		\item architektura \highlighton{REST} (Representational State Transfer)
+		\item zaměření na data
+		\item protokol je bezstavový
+		\item využívá dotazovací metody \highlighton{HTTP}
+	\end{itemize}
+\end{frame}
 
-  Tady Matěj napíše něco o RESTful WS. Možná na to spotřebuje i 2 slidy
+\begin{frame}
+	\frametitle{RESTful Web Services}
+	\framesubtitle{Ukázka}
+	\begin{itemize}
+		\item Mějme prvek s URI \highlighton{http://abc.cz/data/42}
+		\begin{itemize}
+			\item Metoda \highlighton{GET}: vrátí požadovaný prvek
+			\item Metoda \highlighton{PUT}: změní data prvku
+			\item Metoda \highlighton{DELETE}: smaže prvek
+		\end{itemize}
+	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}
