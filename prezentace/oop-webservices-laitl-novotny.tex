@@ -101,7 +101,6 @@
     \begin{itemize}
       \item výměna probíhá mezi \highlighton{klientem} a \highlighton{serverem}
       \item data jsou \highlighton{strukturovaná}
-      \item rozhraní je popsané ve \highlighton{strojově zpracovatelném tvaru}
       \item pro komunikaci se využívá \highlighton{aplikační vrstva} síťového modelu
     \end{itemize}
   \end{block}
@@ -186,13 +185,18 @@
     \begin{itemize}
       \item je protokol pro výměnu strukturovaných informací
       \item používá \highlighton{XML} pro reprezentaci dat
-      \item používá aplikační vrstvu pro přenos zpráv (HTTP, RPC, SMTP)
+      \item používá aplikační vrstvu pro přenos zpráv (HTTP, SMTP)
     \end{itemize}
   \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Historie SOAPu}
+  \framesubtitle{...trocha omáčky}
 
   \begin{block}{SOAP trivia:}
     \begin{itemize}
-      \item vznikl r. 1998 jako projekt Microsoftu\copyright
+      \item vznikl r. 1998 jako projekt Microsoftu\textsuperscript{\texttrademark \textsuperscript{\textregistered}}
       \item r. 2003 se verze 1.2 stala W3C doporučením
     \end{itemize}
   \end{block}
@@ -201,14 +205,20 @@
 \begin{frame}
   \frametitle{Ještě více o SOAPu}
 
-  \begin{block}{SOAP definuje:}
-    \begin{itemize}
-      \item \uv{obálku}: formát zprávy a jak jí zpracovat
-      \item pravidla pro kódování uživatelských datových typů
-      \item konvenci pro volání procedur a obdržení odpovědi
-      \item vazbu na protokoly, nad nimiž funguje
-    \end{itemize}
-  \end{block}
+  \begin{columns}[c]
+    \column{.6\textwidth}
+      \begin{block}{SOAP definuje:}
+        \begin{itemize}
+          \item \uv{obálku}: formát zprávy a jak jí zpracovat
+          \item pravidla pro kódování uživatelských datových typů
+          \item konvenci pro volání procedur a obdržení odpovědi
+          \item vazbu na protokoly, nad nimiž funguje
+        \end{itemize}
+      \end{block}
+    \column{.4\textwidth}
+      \includegraphics[width=\textwidth,keepaspectratio=true]{soap-envelope.png}
+      % soap-envelope.png: 1000x1066 pixel, 72dpi, 35.28x37.61 cm, bb=0 0 1000 1066
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -217,33 +227,77 @@
 
   \begin{block}{SOAP definuje tyto vzory výměny zpráv:}
     \begin{itemize}
-      \item \highlighton{In-Only} - \uv{void method(Object arg)}
-      \item \highlighton{Robust In-Only} - \uv{void method(Object arg) throws Exception}
-      \item \highlighton{In-Out} - \uv{Object method(Object arg) throws Exception}
+      \item \highlighton{In-Only} \uv{void method(Object arg)}
+      \item \highlighton{Robust In-Only} \uv{void method(...) throws Exception}
+      \item \highlighton{In-Out} \uv{Object method(...) throws Exception}
       \item \highlighton{In Optional-Out}
+      \vspace{4mm}
+      \item Out-Only; Out-In: existují v rozšíření, nad \highlighton{HTTP nemožné}
     \end{itemize}
   \end{block}
+
+  {\small Nezapomenout: typické chování výjimek v knihovnách}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ukázka SOAP zprávy}
+  
+  \begin{example}
+    SOAP zprávu si ukážeme naživo v praktické části
+  \end{example}
 \end{frame}
 
 \section{WSDL}
 
 \begin{frame}
-  \frametitle{Přístupy k implementaci serveru}
-  \framesubtitle{Na co si dát pozor}
+  \frametitle{Něco málo o WSDL}
 
-  \begin{enumerate}
-    \item Napsat WSDL, vygenerovat prázdnou implementaci
+  \uv{Web Services Description Language}
+
+  \begin{block}{WSDL}
     \begin{itemize}
-      \alert{\item Pozor na pozdější úpravy}
+      \item abstraktní jazyk pro popis rozhraní dané webové služby
+      \item založený na \highlighton{XML} (xmlns, xmlschema, q-names)
+      \item nezávislý na platformě i na jazyku implementace
+      \item postačující pro kompletní implementaci klienta
+      \item strojově zpracovatelný
+      \begin{itemize}
+        \item $=> \exists$ spousta generátorů různých kvalit
+      \end{itemize}
     \end{itemize}
-    \vspace{4mm}
-    \item Naimplementovat server, vygenerovat WSDL
-    \vspace{4mm}
-    \item Napsat obojí ručně
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Historie WSDL}
+  \framesubtitle{...trocha dějinných souvislostí nikoho nezabije}  
+
+  \begin{block}{WSDL historie:}
     \begin{itemize}
-      \item \highlighton{Nelze doporučit}, pouze pro otrlé
+      \item 2000: WSDL 1.0 (Microsoft, IBM, Ariba)
+      \item 2001: WSDL 1.1 pouze formalizace verze 1.0
+      \begin{itemize}
+        \item dodnes rozšířené (některé frameworky neumí 2.0)
+      \end{itemize}
+      \item 2003: WSDL 1.2 stále pouze \uv{working draft}
+      \item 2008: WSDL 1.2 přejmenováno na 2.0
+      \begin{itemize}
+        \item získalo status W3C doporučení
+        \item jednodušší, logičtější struktura (zpětně nekompatibilní)
+        \item \highlighton{a proto si ukážeme tuto verzi}
+      \end{itemize}
     \end{itemize}
-  \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Struktura WSDL}
+  \framesubtitle{...abychom se zorientovali}
+
+  \begin{center}
+    \includegraphics[height=.9\textheight,keepaspectratio=true]{wsdl-11-20.png}
+    % wsdl-11-20.png: 632x560 pixel, 150dpi, 10.70x9.48 cm, bb=0 0 303 269
+  \end{center}
 \end{frame}
 
 \begin{frame}
@@ -254,7 +308,19 @@
   \end{example}
 \end{frame}
 
-\section{Ukázky kódů}
+\section{Implementování}
+
+\begin{frame}
+  \frametitle{Přístupy k implementaci klienta}
+  \framesubtitle{...jak nezešílet}
+
+  \begin{alertblock}{Rozumná cesta}
+    Každý rozumný programátor si základ vygeneruje z WSDL!
+    \begin{itemize}
+      \item nejlépe, když pak implementaci píše do jiných souborů
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
 
 \begin{frame}
   \frametitle{Generovaní klienta z WSDL}
@@ -267,7 +333,7 @@
 		\end{itemize}    	
   \end{block}
 	\begin{example}
-		Matěji, a teď ukaž, jak se generuje javový kód. Pak tu nám ukaž funkčního klienta.
+		Matěji, a teď ukaž, jak se generuje javový kód. Pak nám tu ukaž funkčního klienta.
 	\end{example}
 \end{frame}
 
@@ -284,8 +350,42 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Server v Pythonu}
+  \frametitle{Přístupy k implementaci serveru}
+  \framesubtitle{Na co si dát pozor}
+
+  \begin{block}{Jak implementovat}
+    \begin{enumerate}
+      \item Napsat WSDL, vygenerovat prázdnou implementaci
+      \begin{itemize}
+        \alert{\item pozor na pozdější úpravy}
+      \end{itemize}
+      \vspace{4mm}
+
+      \item Naimplementovat server, vygenerovat WSDL
+      \begin{itemize}
+        \item typicky anotace k označení exportovaných metod
+      \end{itemize}
+      \vspace{4mm}
+
+      \item Napsat obojí ručně
+      \begin{itemize}
+        \item \alert{nelze doporučit}, pouze pro otrlé
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Server}
   \framesubtitle{...čím línější programátor, tým vyšší jazyk}
+
+  \begin{block}{Frameworky pro psaní serverů}
+    \begin{itemize}
+      \item Apache Axis, Axis2 (Java/C/C++)
+      \item .NET má podporu v základu
+      \item Java Web Services
+    \end{itemize}
+  \end{block}
 
   \begin{example}
     Matěji, a teď ukaž, jak udělat server v Pythonu.
@@ -305,6 +405,38 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Shrnutí}
+  \framesubtitle{...co bych si tak měl zapamatovat}
+
+  \begin{itemize}
+    \item Web Services
+    \begin{itemize}
+      \item \highlighton{Malé} (REST) vs. \highlighton{Velké} (WSDL, SOAP)
+    \end{itemize}
+
+    \item REST
+    \begin{itemize}
+      \item \highlighton{http://abc.cz/data/42} + metody GET, PUT, DELETE
+    \end{itemize}
+
+    \item WSDL
+    \begin{itemize}
+      \item abstraktní strojově zpracovatelný XML popis web služby
+    \end{itemize}
+
+    \item SOAP
+    \begin{itemize}
+      \item protokol upravující formát zpráv a chování protějšků
+    \end{itemize}
+
+    \item Implementování
+    \begin{itemize}
+      \item rozumnou část vygenerovat, pozor na udržovatelnost
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Zdroje}
   \framesubtitle{Pokud se chcete dovědět víc}
   \begin{thebibliography}{10}
@@ -320,16 +452,12 @@
     \newblock {\tt http://www.w3.org/TR/wsdl20-primer/}
 
   \bibitem{soap}
-    Předmluva k SOAP specifikaci
+    Předmluva k SOAP 1.2 specifikaci
     \newblock {\tt http://www.w3.org/TR/soap12-part0/}
 
   \bibitem{xml-schema}
     XML Schema
     \newblock {\tt http://www.w3.org/TR/xmlschema-0/}
-
-  \bibitem{verejne-web-sluzby}
-    Seznam veřejných Web Sevices
-    \newblock {\tt http://TODO/}
 
   \end{thebibliography}
 \end{frame}
